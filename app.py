@@ -30,8 +30,7 @@ def index():
     registros = Log.query.all()
     registros_ordenados = ordenar_por_fecha_y_hora(registros)
     return render_template("index.html", registros=registros_ordenados)
-
-    messages_log = []
+messages_log = []
 
 
 def agregar_messages_log(texto):
@@ -51,7 +50,7 @@ def webhook():
         challenge = verify_token(request)
         return challenge
     elif request.method == "POST":
-        reponse = recibir_mensaje(request)
+        reponse = recibir_mensajes(request)
         return reponse
 
 
@@ -67,10 +66,10 @@ def verify_token(req):
 
 def recibir_mensajes(req):
     req = request.get_json()
-    add_messages_log(req)
+    agregar_messages_log(req)
 
     return jsonify({"message": "EVENT_RECEIVED"})
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
