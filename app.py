@@ -140,8 +140,8 @@ def enviar_mensajes_whatsapp(texto,number):
             "to": number,
             "type": "location",
             "location": {
-                "latitude": "-12.067158831865067",
-                "longitude": "-77.03377940839486",
+                "latitude": "18.96614756347367",
+                "longitude": "-9789936596269078",
                 "name": "BIRMEX MEXICO",
                 "address": "tepeaca Centro"
             }
@@ -195,7 +195,7 @@ def enviar_mensajes_whatsapp(texto,number):
             "type": "text",
             "text": {
                 "preview_url": False,
-                "body": "📅 Horario de Atención : Lunes a Viernes. \n🕜 Horario : 9:00 am a 5:00 pm 🤓"
+                "body": "📅 Horario de Atención : Lunes a Viernes. \n🕜 Horario : 9:00 am a 6:00 pm 🤓"
             }
         }
     elif "0" in texto:
