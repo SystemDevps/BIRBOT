@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 #Configuracion de la base de datos SQLITE
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///metapython.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///metabot.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db =SQLAlchemy(app)
 
@@ -142,8 +142,8 @@ def enviar_mensajes_whatsapp(texto,number):
             "location": {
                 "latitude": "-12.067158831865067",
                 "longitude": "-77.03377940839486",
-                "name": "Estadio DE mEXICO",
-                "address": "Cercado de pUEBLA"
+                "name": "BIRMEX MEXICO",
+                "address": "tepeaca Centro"
             }
         }
     elif "3" in texto:
@@ -154,7 +154,7 @@ def enviar_mensajes_whatsapp(texto,number):
             "type": "document",
             "document": {
                     "link": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf",
-                    "caption": "Temario del Curso #001"
+                    "caption": "informacion de Lotes y Rentas"
                 }
             }
     elif "4" in texto:
@@ -369,13 +369,13 @@ def enviar_mensajes_whatsapp(texto,number):
 
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAAM1QqlQV90BO2QbeOuwedmZAgbAHfCnZBUmQsjP3phs4UEK2fRuYGbZBH7B8nEz3QhV4wt4NEhgfZCvUOQCxZAeNGnaZBBfmMA4ipeMiPD43d2gvxzMrebJm3hilKHcYwOCxZCZCcxJau1wrgugRGehuzs8ZC7jCHzr9lluJvcfUAiYwK5IuQGG7rd4Bz6MoZB902TGkIYdVZBEB1XGzfCOS1HxKccJiv4YLdGcUYZD"
+        "Authorization" : "Bearer EAAJrCskZAO4ABOZCo1TzQwayOk2eSS1DIpp3H1ck7IoVj6CkpLUgHXR5UZCiAlYRdBMFL62rZCupoK95PN6XUZBzvTgCbPHHRZAS5cBpZClf8mgUr9Jc48bczpkIoZBz2G4m5qdAoGCL2HCBGW4ZBMWVB2rxZAzIm8b62amKVFzZAjSElyfh5Rmic21DdAc8B1fivHspOOrpCvf7qZA6cDuiuyPcAi8ZAXIkZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
 
     try:
-        connection.request("POST","/v18.0/117721278011867/messages", data, headers)
+        connection.request("POST","/v22.0/592547423938854/messages", data, headers)
         response = connection.getresponse()
         print(response.status, response.reason)
     except Exception as e:
