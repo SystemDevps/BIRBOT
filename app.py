@@ -44,7 +44,7 @@ def agregar_mensajes_log(texto):
     db.session.commit()
 
 #Token de verificacion para la configuracion
-TOKEN_DEVELOPERS = "DEVELOPERS"
+TOKEN_DEVELOPERS = "CompanySystem"
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():
@@ -369,13 +369,13 @@ def enviar_mensajes_whatsapp(texto,number):
 
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAAJrCskZAO4ABOyxe8pLZAd1fve5BmZA4REp2e6fcTsvfmmCakwgzx9HZCwlXPAy8f5TzK61pinTuMDMFhWoVFWZCpZBBiAXXZBwRGJVIDuBYZABYVxSBg8iV02PJ6Q8GuH0SR1yZBLZCeZCjy9YDcc6lbUh5c13aZBQG6FYJYDxkZAEUCHIZAW9tMMbA3kCDAjH3jfWzSEQZDZD"
+        "Authorization" : "Bearer EAAOOSjXXGWwBO4rMpoccHjTMDlFhoSJYiZAxgw5a4wV6ba12ZAf1sXtOzDZCRlZAAdejM9ODtJEM3PtWAD7nZAqbFnOKHlSs8R0x87UIIWAXmnqcZBmvJKDUSTG3GEBye99KzhYP38NcimSpavVNavHZBKETGob1XZCIgtf4mnZCvRztUZBKE3a1ZCQvjcqZCfQGJYuri96wP03bCOIxN3YPY8osUqY6o23oy1vtzHi26qyZAsq8ZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
 
     try:
-        connection.request("POST","/v22.0/592547423938854/messages", data, headers)
+        connection.request("POST","/v22.0/571163332752974/messages", data, headers)
         response = connection.getresponse()
         print(response.status, response.reason)
     except Exception as e:
