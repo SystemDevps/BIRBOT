@@ -44,7 +44,7 @@ def agregar_mensajes_log(texto):
     db.session.commit()
 
 #Token de verificacion para la configuracion
-TOKEN_ANDERCODE = "CompanySystem"
+TOKEN_ANDERCODE = "SYSTEMDEVPS"
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():
