@@ -1,1 +1,6 @@
 https://documenter.getpostman.com/view/14215086/TzsZrU6U
+
+
+permanente: EAAc9J9f30foBO2My1PMnZBqrav1ovTeXha4Ha1NzFq0jDY87ZA4AKwXIKGe8L1nJtGaCKiOcZAWUgicnljgWcewXyejGHRlfgvsgJJvOiZBuZBHkkG9uw0xr6ZBGXsY1pbAA3XJsZBt4yPbQB716ZBgDpnoK01g6ZAhiH4KRiGMBtfIA6MmdLwYiKvgLv9EMjH0X62gZDZD
+
+TOKEN_DEVELOPERS = "CompanySystem"

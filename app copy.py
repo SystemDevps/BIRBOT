@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 #Configuracion de la base de datos SQLITE
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///metapython.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///metabot.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db =SQLAlchemy(app)
 
@@ -44,7 +44,7 @@ def agregar_mensajes_log(texto):
     db.session.commit()
 
 #Token de verificacion para la configuracion
-TOKEN_ANDERCODE = "CompanySystem"
+TOKEN_DEVELOPERS = "CompanySystem"
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():
@@ -59,7 +59,7 @@ def verificar_token(req):
     token = req.args.get('hub.verify_token')
     challenge = req.args.get('hub.challenge')
 
-    if challenge and token == TOKEN_ANDERCODE:
+    if challenge and token == TOKEN_DEVELOPERS:
         return challenge
     else:
         return jsonify({'error':'Token Invalido'}),401
@@ -140,10 +140,10 @@ def enviar_mensajes_whatsapp(texto,number):
             "to": number,
             "type": "location",
             "location": {
-                "latitude": "-12.067158831865067",
-                "longitude": "-77.03377940839486",
-                "name": "Estadio Nacional del Perú",
-                "address": "Cercado de Lima"
+                "latitude": "18.96614756347367",
+                "longitude": "-9789936596269078",
+                "name": "BIRMEX MEXICO",
+                "address": "tepeaca Centro"
             }
         }
     elif "3" in texto:
@@ -154,7 +154,7 @@ def enviar_mensajes_whatsapp(texto,number):
             "type": "document",
             "document": {
                     "link": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf",
-                    "caption": "Temario del Curso #001"
+                    "caption": "informacion de Lotes y Rentas"
                 }
             }
     elif "4" in texto:
@@ -195,7 +195,7 @@ def enviar_mensajes_whatsapp(texto,number):
             "type": "text",
             "text": {
                 "preview_url": False,
-                "body": "📅 Horario de Atención : Lunes a Viernes. \n🕜 Horario : 9:00 am a 5:00 pm 🤓"
+                "body": "📅 Horario de Atención : Lunes a Viernes. \n🕜 Horario : 9:00 am a 6:00 pm 🤓"
             }
         }
     elif "0" in texto:
