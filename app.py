@@ -109,15 +109,15 @@ def recibir_mensajes(req):
     except Exception as e:
         return jsonify({'message':'EVENT_RECEIVED'})
 
-def enviar_mensajes_whatsapp(texto,number):
+def enviar_mensajes_whatsapp(texto,numero):
     texto = texto.lower()
 
     if "hola" in texto:
         data={
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
-            "type": "text",
+            "to": numero,
+            "type": "texto",
             "text": {
                 "preview_url": False,
                 "body": "🚀 Hola, ¿Cómo estás? Bienvenido."
@@ -127,7 +127,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -137,7 +137,7 @@ def enviar_mensajes_whatsapp(texto,number):
     elif "2" in texto:
         data = {
             "messaging_product": "whatsapp",
-            "to": number,
+            "to": numero,
             "type": "location",
             "location": {
                 "latitude": "-12.067158831865067",
@@ -150,7 +150,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data={
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "document",
             "document": {
                     "link": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf",
@@ -161,7 +161,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data={
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "audio",
             "audio": {
                 "link": "https://filesamples.com/samples/audio/mp3/sample1.mp3"
@@ -170,7 +170,7 @@ def enviar_mensajes_whatsapp(texto,number):
     elif "5" in texto:
         data = {
             "messaging_product": "whatsapp",
-            "to": number,
+            "to": numero,
             "text": {
                 "preview_url": True,
                 "body": "Introduccion al curso! https://youtu.be/6ULOE2tGlBM"
@@ -180,7 +180,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -191,7 +191,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -202,7 +202,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -213,7 +213,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "interactive",
             "interactive":{
                 "type":"button",
@@ -252,7 +252,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -263,7 +263,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -274,7 +274,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -284,7 +284,7 @@ def enviar_mensajes_whatsapp(texto,number):
     elif "lista" in texto:
         data ={
             "messaging_product": "whatsapp",
-            "to": number,
+            "to": numero,
             "type": "interactive",
             "interactive":{
                 "type" : "list",
@@ -334,7 +334,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -345,7 +345,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data = {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -356,7 +356,7 @@ def enviar_mensajes_whatsapp(texto,number):
         data={
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": number,
+            "to": numero,
             "type": "text",
             "text": {
                 "preview_url": False,
@@ -384,4 +384,4 @@ def enviar_mensajes_whatsapp(texto,number):
         connection.close()
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0',port=5000,debug=True)
+    app.run(host='0.0.0.0',port=80,debug=True)
