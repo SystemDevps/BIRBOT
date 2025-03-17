@@ -103,7 +103,7 @@ def recibir_mensajes(req):
                     enviar_mensajes_whatsapp(text,numero)
 
                     #Guardar Log en la BD
-                    agregar_mensajes_log(json.dumps(messages))
+                    #agregar_mensajes_log(json.dumps(messages))
 
         return jsonify({'message':'EVENT_RECEIVED'})
     except Exception as e:
@@ -384,4 +384,4 @@ def enviar_mensajes_whatsapp(texto,numero):
         connection.close()
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0',port=80,debug=True)
+    app.run(host='0.0.0.0',port=5000,debug=True)
