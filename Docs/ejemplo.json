@@ -1,15 +1,9 @@
 {
-  "messaging_product": "whatsapp",
-  "contacts": [
-    {
-      "input": "522491415222",
-      "wa_id": "5212491415222"
-    }
-  ],
-  "messages": [
-    {
-      "id": "wamid.HBgNNTIxMjQ5MTQxNTIyMhUCABEYEjk0RjQwMTIzNUE2ODI4NDI2QgA=",
-      "message_status": "accepted"
-    }
-  ]
+  "from": "5212491415222",
+  "id": "wamid.HBgNNTIxMjQ5MTQxNTIyMhUCABIYIEMxQkIxODZEODI4MDA4REJGMUMzOUMwOEI0MjM1QjkyAA==",
+  "timestamp": "1742340300",
+  "text": {
+    "body": "hola"
+  },
+  "type": "text"
 }
