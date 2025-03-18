@@ -109,14 +109,14 @@ def recibir_mensajes(req):
     except Exception as e:
         return jsonify({'message':'EVENT_RECEIVED'})
 
-def enviar_mensajes_whatsapp(texto,numero):
+def enviar_mensajes_whatsapp(texto,number):
     texto = texto.lower()
 
     if "hola" in texto:
         data={
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
-            "to": numero,
+            "to": number,
             "type": "texto",
             "text": {
                 "preview_url": False,
