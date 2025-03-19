@@ -49,6 +49,7 @@ def agregar_mensajes_log(texto):
 TOKEN_SYSTEMDEVPS = "SYSTEMDEVPS"
 
 @app.route('/webhook', methods=['GET','POST'])
+
 def webhook():
     if request.method == 'GET':
         challenge = verificar_token(request)
@@ -67,48 +68,10 @@ def verificar_token(req):
         return jsonify({'error':'Token Invalido'}),401
 
 def recibir_mensajes(req):
-    try:
-        req = request.get_json()
-        entry =req['entry'][0]
-        changes = entry['changes'][0]
-        value = changes['value']
-        objeto_mensaje = value['messages']
+   req = request.get_json()
+   agregar_mensajes_log(req)
 
-        if objeto_mensaje:
-            messages = objeto_mensaje[0]
-
-            if "type" in messages:
-                tipo = messages["type"]
-
-                #Guardar Log en la BD
-                agregar_mensajes_log(json.dumps(messages))
-
-                if tipo == "interactive":
-                    tipo_interactivo = messages["interactive"]["type"]
-
-                    if tipo_interactivo == "button_reply":
-                        text = messages["interactive"]["button_reply"]["id"]
-                        numero = messages["from"]
-
-                        #enviar_mensajes_whatsapp(text,numero)
-                    
-                    elif tipo_interactivo == "list_reply":
-                        text = messages["interactive"]["list_reply"]["id"]
-                        numero = messages["from"]
-
-                        #enviar_mensajes_whatsapp(text,numero)
-
-                if "text" in messages:
-                    text = messages["text"]["body"]
-                    numero = messages["from"]
-
-                    enviar_mensajes_whatsapp(text,numero)
-
-                  
-
-        return jsonify({'message':'EVENT_RECEIVED'})
-    except Exception as e:
-        return jsonify({'message':'EVENT_RECEIVED'})
+   return jsonify({'message':'EVENT_RECEIVED'})
 
 def enviar_mensajes_whatsapp(texto,number):
     texto = texto.lower()
@@ -370,7 +333,7 @@ def enviar_mensajes_whatsapp(texto,number):
 
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAAc9J9f30foBO4NkwyKKR7poFNCHyELIXkRHJlFOyTIq5ZCZAfOeFymwjJNAldmDIcPp3DmDpyM59GA5zdrB3HmkxyiCXcyOoJWZCZAZCj6faaBxVE6Qic4amgfP0ekA5jW7t5hv9KMi3HbaAZBmbxillI0nf8v69fTHChZAv1Vcr4ZAbzstcTVTDn97q5RabV2D6wZDZD"
+        "Authorization" : "Bearer EAAc9J9f30foBO7HK6EB4dLGlxwaKSzXqQJ3wRPeiACbZCw7qdUvwi1WrPQXlP2dT2GVnR8oKQE5hACfSRQjptJEhgPSXbl1HX5gIRepWtHdfrhzKRDVmAYacZCp3AiNGP6ADmGFEtLN08HNeG9Q9Hp6fZBWn7bsxl9ePXRZCR2nXGYxY3ZC32S8HB5btGNn5tBwZDZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
