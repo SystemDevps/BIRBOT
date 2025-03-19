@@ -79,22 +79,13 @@ def recibir_mensajes(req):
                 tipo = messages["type"]
 
                 #Guardar Log en la BD
-                agregar_mensajes_log(json.dumps(messages))
+                #agregar_mensajes_log(json.dumps(messages))
 
                 if tipo == "interactive":
-                    tipo_interactivo = messages["interactive"]["type"]
+                    #tipo_interactivo = messages["interactive"]["type"]
+                    return 0
 
-                    if tipo_interactivo == "button_reply":
-                        text = messages["interactive"]["button_reply"]["id"]
-                        numero = messages["from"]
-
-                        enviar_mensajes_whatsapp(text,numero)
-                    
-                    elif tipo_interactivo == "list_reply":
-                        text = messages["interactive"]["list_reply"]["id"]
-                        numero = messages["from"]
-
-                        enviar_mensajes_whatsapp(text,numero)
+                    enviar_mensajes_whatsapp(text,numero)
 
                 if "text" in messages:
                     text = messages["text"]["body"]
